@@ -31,12 +31,7 @@ namespace FoodsProject
             {
                 x.LoginPath = "/Login/Index";
             });
-            services.AddMvc(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-
-                config.Filters.Add(new AuthorizeFilter(policy));
-            });
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
