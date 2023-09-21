@@ -1,0 +1,19 @@
+﻿@model FoodsProject.Data.Models.Category
+@{
+    ViewData["Title"] = "FindCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>About @Model.CategoryName</h1>
+<br />
+<form class="form-group">
+    <label><b>Category ID</b></label><br />
+    <input type="text" name="CategoryID" value="@Model.CategoryID" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Category Name</b></label><br />
+    <input type="text" name="CategoryName" value="@Model.CategoryName" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Category Description</b></label><br />
+    <input type="text" name="CategoryDescription" value="@Model.CategoryDescription" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Category Status</b></label><br />
+    @Html.TextBoxFor(x=>x.CategoryStatus, new { @class = "form-control", @readonly = true, @style = "background-color:antiquewhite"})<br />
+    <a href="/Category/UpdateCategory/@Model.CategoryID" class="btn btn-warning">Change Informations</a>
+</form>

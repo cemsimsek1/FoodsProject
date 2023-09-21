@@ -1,0 +1,14 @@
+﻿@model FoodsProject.Data.Models.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add New Category</h1>
+<br />
+<form method="post" action="AddCategory" class="form-group">
+    <input type="text" name="CategoryName" placeholder="Category Name" class="form-control" />
+    @Html.ValidationMessageFor(x=>x.CategoryName, "", new { @style = "margin-left:3px; color:red; font-size:11px;"})<br />
+    <input type="text" name="CategoryDescription" placeholder="Description" class="form-control" /><br />
+    <input type="submit" value=" Add " class="btn btn-primary" />
+</form>

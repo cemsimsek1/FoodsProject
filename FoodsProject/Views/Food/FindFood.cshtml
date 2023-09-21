@@ -1,0 +1,21 @@
+﻿@model FoodsProject.Data.Models.Food
+@{
+    ViewData["Title"] = "FindFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>About @Model.FoodName</h1>
+<br />
+<form class="form-group">
+    <label><b>Food ID</b></label><br />
+    <input type="text" name="FoodID" value="@Model.FoodID" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Food Name</b></label><br />
+    <input type="text" name="FoodName" value="@Model.FoodName" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Food Price</b></label><br />
+    <input type="text" name="FoodPrice" value="@Model.FoodPrice" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Food Stock</b></label><br />
+    <input type="text" name="FoodStock" value="@Model.FoodStock" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <label><b>Category Name</b></label><br />
+    @Html.TextBoxFor(x => x.Category.CategoryName, new{ @class = "form-control", @readonly = true, @style = "background-color:antiquewhite"})<br />
+    <a href="/Food/UpdateFood/@Model.FoodID" class="btn btn-warning">Change Informations</a>
+</form>

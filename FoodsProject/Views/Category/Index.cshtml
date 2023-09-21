@@ -1,0 +1,37 @@
+﻿@model List<FoodsProject.Data.Models.Category>
+@using FoodsProject.Data.Models
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Category List</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Category Name</th>
+        <th>Category Description</th>
+        <th>Category Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CategoryID</th>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            @if (item.CategoryStatus == true)
+            {
+                <td>Active</td>
+            }
+            else
+            {
+                <td>Passive</td>
+            }
+            <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Be Passive</a></td>
+            <td><a href="/Category/FindCategory/@item.CategoryID" class="btn btn-success">Update</a></td>
+        </tr>
+    }
+</table>
+<a href="/Category/AddCategory/" class="btn btn-primary">Add New Category</a>

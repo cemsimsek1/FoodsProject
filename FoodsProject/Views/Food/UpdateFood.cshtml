@@ -1,0 +1,33 @@
+﻿@model FoodsProject.Data.Models.Food
+@using FoodsProject.Data.Models
+@{
+    ViewData["Title"] = "UpdateFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update @Model.FoodName</h1>
+<br />
+<form method="post" action="UpdateFood" class="form-group">
+    <label><b>Food ID</b></label><br />
+    <input type="text" value="@Model.FoodID" name="FoodID" class="form-control" style="background-color:antiquewhite" readonly /><br />
+
+    <label><b>Food Name</b></label><br />
+    <input type="text" value="@Model.FoodName" name="FoodName" class="form-control" /><br />
+
+    <label><b>Food Price</b></label><br />
+    <input type="text" value="@Model.FoodPrice" name="FoodPrice" class="form-control" /><br />
+
+    <label><b>Food Stock</b></label><br />
+    <input type="text" value="@Model.FoodStock" name="FoodStock" class="form-control" /><br />
+
+    <label><b>Food Image URL</b></label><br />
+    <input type="text" value="@Model.FoodImageURL" name="FoodImageURL" class="form-control" /><br />
+
+    <label><b>Category Name</b></label><br />
+    @Html.DropDownListFor(x=>x.CategoryID, (List<SelectListItem>)ViewBag.vls, new { @class = "form-control"})<br />
+
+    <label><b>Food Description</b></label><br />
+    @Html.TextAreaFor(x=>x.FoodDescription, new { @class = "form-control"})<br />
+
+    <input type="submit" value="Save Changes" class="btn btn-warning" />
+</form>

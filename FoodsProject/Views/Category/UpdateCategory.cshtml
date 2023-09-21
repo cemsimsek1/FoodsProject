@@ -1,0 +1,20 @@
+﻿@model FoodsProject.Data.Models.Category
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Update @Model.CategoryName</h1>
+<br />
+<form action="UpdateCategory" method="post" class="form-group">
+    <label><b>Category ID</b></label><br />
+    <input type="text" name="CategoryID" value="@Model.CategoryID" class="form-control" style="background-color:antiquewhite" readonly /><br />
+    <input type="hidden" value="@Model.CategoryID" name="CategoryID" />
+    <label><b>Category Name</b></label><br />
+    <input type="text" value="@Model.CategoryName" name="CategoryName" class="form-control" /><br />
+    <label><b>Category Description</b></label><br />
+    <input type="text" value="@Model.CategoryDescription" name="CategoryDescription" class="form-control" /><br />
+    <label><b>Category Status</b></label><br />
+    @Html.TextBoxFor(x => x.CategoryStatus, new { @class = "form-control"})<br />
+    <input type="submit" value="Save Changes" class="btn btn-warning" />
+</form>

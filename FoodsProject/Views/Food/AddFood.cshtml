@@ -1,0 +1,17 @@
+﻿@model FoodsProject.Data.Models.Food
+@{
+    ViewData["Title"] = "AddFood";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add New Food</h1>
+<br />
+<form method="post" action="AddFood" class="form-group">
+    <input type="text" name="FoodName" placeholder="Food Name" class="form-control" /><br />
+    <input type="number" name="FoodPrice" placeholder="Food Price" class="form-control" /><br />
+    <input type="number" name="FoodStock" placeholder="FoodStock" class="form-control" /><br />
+    <input type="text" name="FoodImageURL" placeholder="Food ImageURL" class="form-control" /><br />
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.Food, new{@class="form-control"})<br />
+    @Html.TextAreaFor(x=>x.FoodDescription, new{ @class = "form-control", @placeholder = "Description"})<br />
+    <input type="submit" value=" Add " class="btn btn-primary" />
+</form>
